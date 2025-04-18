@@ -34,7 +34,7 @@ public class JoinFirework implements Listener {
 
 		if (joinConfig.getBoolean(joinType + ".Other.Firework") &&
 				p.hasPermission("jep." + joinType.toLowerCase() + ".firework")) {
-		    Firework firework = (Firework) p.getWorld().spawnEntity(p.getLocation(), EntityType.FIREWORK);
+		    Firework firework = (Firework) p.getWorld().spawnEntity(p.getLocation(), EntityType.FIREWORK_ROCKET);
 		    FireworkMeta fireworkMeta = firework.getFireworkMeta();
 		    FireworkEffect.Type type = FireworkEffect.Type.BALL;
 

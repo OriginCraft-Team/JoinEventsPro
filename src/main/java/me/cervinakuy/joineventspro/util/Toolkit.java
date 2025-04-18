@@ -43,46 +43,46 @@ public class Toolkit {
 		}
 		return Toolkit.translate(text);
 	}
-	
- 	private static int versionToNumber() {
- 		String version = Bukkit.getVersion();
- 		if (version.contains("1.8")) {
- 			return 18;
- 		} else if (version.contains("1.9")) {
- 			return 19;
- 		} else if (version.contains("1.10")) {
- 			return 110;
- 		} else if (version.contains("1.11")) {
- 			return 111;
- 		} else if (version.contains("1.12")) {
- 			return 112;
- 		} else if (version.contains("1.13")) {
- 			return 113;
- 		} else if (version.contains("1.14")) {
- 			return 114;
- 		} else if (version.contains("1.15")) {
- 			return 115;
- 		} else if (version.contains("1.16")) {
- 			return 116;
+
+	private static int versionToNumber() {
+		String version = Bukkit.getVersion();
+		if (version.contains("1.8")) {
+			return 18;
+		} else if (version.contains("1.9")) {
+			return 19;
+		} else if (version.contains("1.10")) {
+			return 110;
+		} else if (version.contains("1.11")) {
+			return 111;
+		} else if (version.contains("1.12")) {
+			return 112;
+		} else if (version.contains("1.13")) {
+			return 113;
+		} else if (version.contains("1.14")) {
+			return 114;
+		} else if (version.contains("1.15")) {
+			return 115;
+		} else if (version.contains("1.16")) {
+			return 116;
 		} else if (version.contains("1.17")) {
- 			return 117;
+			return 117;
 		} else if (version.contains("1.18")) {
- 			return 118;
+			return 118;
 		} else if (version.contains("1.19")) {
- 			return 119;
+			return 119;
 		}
- 		return 500;
- 	}
-	
- 	@SuppressWarnings("deprecation")
+		return 500;
+	}
+
+	@SuppressWarnings("deprecation")
 	public static ItemStack getMainHandItem(Player p) {
- 		if (versionToNumber() == 18) {
- 			return p.getItemInHand();
- 		} else if (versionToNumber() > 18) {
- 			return p.getInventory().getItemInMainHand();
- 		}
- 		return p.getItemInHand();
- 	}
+		if (versionToNumber() == 18) {
+			return p.getItemInHand();
+		} else if (versionToNumber() > 18) {
+			return p.getInventory().getItemInMainHand();
+		}
+		return p.getItemInHand();
+	}
 
 	public static String translate(String s) {
 		return ChatColor.translateAlternateColorCodes('&', s);
@@ -136,9 +136,17 @@ public class Toolkit {
 		printToConsole("&7[&b&lKIT-PVP&7] &cInvalid material: " + materialName);
 		return new ItemStack(Toolkit.FALLBACK_MATERIAL);
 	}
-	
+
 	public static void printToConsole(String string) {
 		Bukkit.getConsoleSender().sendMessage(Toolkit.translate(string));
 	}
 
+	public static boolean isNumeric(String string) {
+		try {
+			Double.parseDouble(string);
+			return true;
+		} catch (NumberFormatException e) {
+			return false;
+		}
+	}
 }
