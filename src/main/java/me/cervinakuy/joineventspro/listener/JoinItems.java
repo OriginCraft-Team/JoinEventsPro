@@ -3,6 +3,7 @@ package me.cervinakuy.joineventspro.listener;
 import com.cryptomorin.xseries.XMaterial;
 import me.cervinakuy.joineventspro.Game;
 import me.cervinakuy.joineventspro.util.*;
+import net.william278.husksync.event.BukkitSyncCompleteEvent;
 import org.bukkit.Material;
 import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.entity.Player;
@@ -10,7 +11,6 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.Action;
 import org.bukkit.event.player.PlayerInteractEvent;
-import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
@@ -25,8 +25,8 @@ public class JoinItems implements Listener {
 	}
 
 	@EventHandler
-	public void onJoin(PlayerJoinEvent e) {
-		Player p = e.getPlayer();
+	public void onJoin(BukkitSyncCompleteEvent e) {
+		Player p = (Player)e.getUser();
 		String joinType = (!p.hasPlayedBefore() || debug.isDebugUser(p.getName())) ? "FirstJoin" : "Join";
 		Resource joinConfig = resources.getResourceByName(joinType);
 

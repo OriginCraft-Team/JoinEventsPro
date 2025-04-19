@@ -120,6 +120,12 @@
             <version>3.8+1.21.4</version>
             <scope>provided</scope>
         </dependency>
+        <dependency>
+            <groupId>net.william278.husksync</groupId>
+            <artifactId>husksync-bukkit</artifactId>
+            <version>3.8+1.21.4</version>
+            <scope>provided</scope>
+        </dependency>
     </dependencies>
 
     <repositories>
@@ -130,6 +136,10 @@
         <repository>
             <id>placeholderapi</id>
             <url>https://repo.extendedclip.com/releases/</url>
+        </repository>
+        <repository>
+            <id>william278.net</id>
+            <url>https://repo.william278.net/releases</url>
         </repository>
         <repository>
             <id>william278.net</id>
