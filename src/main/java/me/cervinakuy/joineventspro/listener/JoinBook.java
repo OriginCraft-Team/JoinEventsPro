@@ -7,6 +7,7 @@ import me.cervinakuy.joineventspro.util.Resource;
 import me.cervinakuy.joineventspro.util.Resources;
 import me.cervinakuy.joineventspro.util.Toolkit;
 import net.william278.husksync.event.BukkitSyncCompleteEvent;
+import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -25,7 +26,7 @@ public class JoinBook implements Listener {
 
 	@EventHandler
 	public void onJoin(BukkitSyncCompleteEvent e) {
-		Player p = (Player)e.getUser();
+		Player p = Bukkit.getPlayer(e.getUser().getUuid());
 		String joinType = (!p.hasPlayedBefore() || debug.isDebugUser(p.getName())) ? "FirstJoin" : "Join";
 		Resource joinConfig = resources.getResourceByName(joinType);
 		String pathPrefix = joinType + ".Book";
